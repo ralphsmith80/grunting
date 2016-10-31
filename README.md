@@ -1,2 +1,2 @@
 # grunting
-A Mesh client side data layer for Javascript applications
+Build utilities for (gloss)[https://github.com/ralphsmith80/gloss] and (gloss)[https://github.com/ralphsmith80/gloss] applications. 
