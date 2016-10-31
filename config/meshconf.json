@@ -1,0 +1,17 @@
+{
+    "bundles": {
+        "administrative":   "/proxy",
+        "concert":          "/proxy",
+        "docket":           "/proxy",
+        "docket.document":  "/proxy",
+        "docket.entity":    "/proxy",
+        "enamel":           "/proxy",
+        "enamel.concept":   "/proxy",
+        "explorers":        "/api",
+        "gateway":          "/proxy",
+        "narrative":        "/proxy",
+        "security":         "/proxy",
+        "tidings":          "/proxy",
+        "users":            "/uapi"
+    }
+}

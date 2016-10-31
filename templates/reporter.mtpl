@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites><%
+  testsuites.forEach(function(testsuite) { %>
+    <testsuite tests="<%=testsuite.testcases.length%>" failures="<%=issues('failures', testsuite.testcases)%>" errors="<%=issues('errors', testsuite.testcases)%>" time="<%=testsuite.duration/1000.0%>" name="<%=escape(testsuite.name)%>"><%
+      testsuite.testcases.forEach(function(testcase) { %>
+        <testcase name="<%=clean(snake(testcase.name))%>" status="<%=testcase.status%>" classname="<%=classname(testsuite.name, testcase.module)%>" time="<%=testsuite.duration/testsuite.testcases.length/1000.0%>"><%
+          if (testcase.failures) {
+            testcase.failures.forEach(function(failure) { %>
+              <failure message="<%=escape(failure.message)%>" /><%
+            });
+          }
+
+          if (testcase.errors) {
+            testcase.errors.forEach(function(error) { %>
+              <error message="<%=escape(error.message)%>" /><%
+            });
+          }%>
+        </testcase><%
+      }); %>
+    </testsuite><%
+  }); %>
+</testsuites>

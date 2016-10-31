@@ -1,0 +1,127 @@
+{
+  "baseUrl": "/",
+  "paths": {
+
+    "api": "components/api",
+
+    "dax": "components/dax",
+    "daft": "components/daft",
+    "dashboard": "components/dashboard",
+    "plcy": "components/plcy",
+    "glad": "components/glad",
+    "scriptiq": "components/scriptiq",
+
+    "auxl": "components/auxl",
+    "bedrock": "components/bedrock",
+    "css": "components/require-vendor/css",
+    "gloss": "components/gloss",
+    "i18n": "components/require-vendor/i18n",
+    "lookandfeel": "components/lookandfeel",
+    "mesh": "components/mesh-client",
+    "text": "components/require-vendor/text",
+    "tmpl": "components/gloss/require/tmpl",
+    "vendor": "components/vendor",
+    "vendor/excanvas": "components/vendor/excanvas/excanvas-unknown",
+    "vendor/jit": "components/vendor/jit/jit-master",
+    "vendor/jquery": "components/vendor/jquery/jquery-1.8.2",
+    "vendor/jquery-ui": "components/vendor/jquery-ui/jquery-ui-1.8.24.custom",
+    "vendor/json2": "components/vendor/json2/json2",
+    "vendor/moment": "components/vendor/moment/moment-1.7.2",
+    "vendor/path": "components/vendor/path/path-0.8.4",
+    "vendor/socket.io": "components/vendor/socket.io/socket.io-1.0.4",
+    "vendor/spin": "components/vendor/spin/spin-1.2.5",
+    "vendor/t": "components/vendor/t/t-0.4.0",
+    "vendor/underscore": "components/vendor/underscore/underscore-1.4.4",
+    "vendor/uuid": "components/vendor/uuid/uuid-1.4.0",
+
+    "./excanvas": "./excanvas/excanvas-unknown",
+    "./jit": "./jit/jit-master",
+    "./jquery": "./jquery/jquery-1.8.2",
+    "./jquery-ui": "./jquery-ui/jquery-ui-1.8.24.custom",
+    "./json2": "./json2/json2",
+    "./moment": "./moment/moment-1.7.2",
+    "./path": "./path/path-0.8.4",
+    "./socket.io": "./socket.io/socket.io-1.0.4",
+    "./spin": "./spin/spin-1.2.5",
+    "./t": "./t/t-0.4.0",
+    "./underscore":  "./underscore/underscore-1.4.4",
+    "./uuid":  "./uuid/uuid-1.4.0"
+  },
+  "shim": {
+    "vendor/jit": {
+      "deps": [
+        "vendor/excanvas"
+      ],
+      "exports": "$jit"
+    },
+    "vendor/jquery": {
+      "exports": "jQuery",
+      "deps": []
+    },
+    "vendor/jquery-ui": {
+      "deps": [
+        "vendor/jquery"
+      ],
+      "exports": "jQuery"
+    },
+    "vendor/json2": {
+      "exports": "JSON",
+      "deps": []
+    },
+    "vendor/moment": {
+      "exports": "moment",
+      "deps": []
+    },
+    "vendor/socket.io": {
+      "exports": "io",
+      "deps": []
+    },
+    "vendor/spin": {
+      "exports": "Spinner",
+      "deps": []
+    },
+    "vendor/path": {
+      "exports": "Path",
+      "deps": []
+    },
+    "vendor/t": {
+      "exports": "t",
+      "deps": []
+    },
+    "vendor/underscore": {
+      "exports": "_",
+      "deps": []
+    },
+
+    "./jit": {
+      "deps": ["./excanvas"],
+      "exports": "$jit"
+    },
+    "./jquery": {
+      "exports": "jQuery"
+    },
+    "./jquery-ui": {
+      "deps": ["./jquery"],
+      "exports": "jQuery"
+    },
+    "./json2": {
+      "exports": "JSON"
+    },
+    "./moment": {
+      "exports": "moment"
+    },
+    "./spin": {
+      "exports": "Spinner"
+    },
+    "./path": {
+      "exports": "Path"
+    },
+    "./t": {
+      "exports": "t"
+    },
+    "./underscore": {
+      "exports": "_"
+    }
+  },
+  "waitSeconds": 60
+}

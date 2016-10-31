@@ -1,0 +1,120 @@
+dev-install:
+  - 'find:symlink'
+  - 'symlink'
+  - 'less'
+  - 'strings'
+
+install:
+  - 'find:copy'
+  - 'copy:install'
+  - 'copy:require'
+  - 'less'
+  - 'strings'
+
+strings:
+  - 'copy:strings'
+
+build-index:
+  - 'strings'
+  - 'compile:dev'
+
+minify:
+  - 'requirejs:index'
+  - 'concat_css:index'
+  - 'cssmin:index'
+
+cleanup:
+  - 'clean:index'
+  - 'clean:html'
+  - 'clean:components'
+  - 'clean:test'
+
+# this is a dev build becasue it links
+# this will work on windows but you need to run your shell as administrator
+build:
+  - 'cleanup'
+  - 'dev-install'
+  - 'compile:dev'
+
+build-embed:
+  - 'cleanup'
+  - 'install'
+  - 'requirejs:embed'
+  - 'concat_css:embed'
+  - 'cssmin:index'
+  - 'imageEmbed:embed'
+  - 'uglify:require'
+  - 'compile:ebmed'
+
+build-win:
+  - 'cleanup'
+  - 'install'
+  - 'copy:testDependencies'
+  - 'compile:dev'
+
+build-test:
+  - 'cleanup'
+  - 'dev-install'
+  - 'compile:dev'
+
+dev-minify:
+  - 'cleanup'
+  - 'dev-install'
+  - 'minify'
+  - 'compile:minified'
+
+build-minify:
+  - 'cleanup'
+  - 'install'
+  - 'minify'
+  - 'compile:minified'
+
+production-build:
+  - 'build-minify'
+  # this tasks overwrites copied files so I'm putting it here so that it only does this in production
+  - 'uglify:api'
+  - 'uglify:nls'
+  - 'uglify:require'
+  - 'clean:production'
+
+serve:
+  - 'configureProxies:proxy'
+  - 'connect:proxy'
+
+serve-test:
+  - 'strings'
+  - 'connect:test:keepalive'
+
+serve-static:
+  - 'connect:server'
+
+test:
+  - 'strings'
+  - 'connect:test'
+  - 'qunit_url_mapper:component'
+  - 'qunit'
+
+test-all:
+  - 'strings'
+  - 'connect:test'
+  - 'qunit_url_mapper:all'
+  - 'qunit'
+
+test-ci:
+  - 'components'
+  - 'strings'
+  - 'connect:test'
+  - 'qunit_logger'
+  - 'qunit_url_mapper:ci'
+  - 'qunit'
+
+test-list:
+  - 'strings'
+  - 'qunit_url_mapper:all'
+  - 'connect:listtest'
+
+default:
+  - 'environment'
+
+perf-budget:
+  - 'perfbudget:daft'
